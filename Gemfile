@@ -27,6 +27,9 @@ gem "puma", "~> 5.0"
 # Serializer
 gem 'blueprinter'
 
+# Pagination
+gem 'pagy', '~> 5.10'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
@@ -65,5 +68,3 @@ group :test do
   # extend expectations
   gem 'shoulda-matchers', '~> 4.0'
 end
-
-
