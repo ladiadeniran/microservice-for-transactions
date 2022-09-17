@@ -8,8 +8,7 @@ class CreateCurrencies < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :currencies, :symbol, unique: true
+    add_index :currencies, :name, unique: true
   end
-
-  add_index :currencies, :symbol, unique: true
-  add_index :currencies, :name, unique: true
 end
