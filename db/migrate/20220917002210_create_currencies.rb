@@ -2,7 +2,7 @@
 
 class CreateCurrencies < ActiveRecord::Migration[7.0]
   def change
-    create_table :currencies do |t|
+    create_table :currencies, id: :uuid do |t|
       t.string :symbol, null: false
       t.string :name, null: false
 

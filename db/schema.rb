@@ -12,9 +12,10 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_09_17_002618) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "currencies", force: :cascade do |t|
+  create_table "currencies", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "symbol", null: false
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -23,19 +24,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_17_002618) do
     t.index ["symbol"], name: "index_currencies_on_symbol", unique: true
   end
 
-  create_table "customers", force: :cascade do |t|
+  create_table "customers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
   end
 
-  create_table "transactions", force: :cascade do |t|
-    t.bigint "customer_id", null: false
+  create_table "transactions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "customer_id", null: false
     t.float "input_amount", null: false
-    t.bigint "input_currency_id", null: false
+    t.uuid "input_currency_id", null: false
     t.float "output_amount", null: false
-    t.bigint "output_currency_id", null: false
+    t.uuid "output_currency_id", null: false
     t.datetime "transaction_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
