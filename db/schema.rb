@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_17_002618) do
   create_table "currencies", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "symbol", null: false
     t.string "name", null: false
-    t.string "code", null: false
+    t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_currencies_on_code", unique: true
