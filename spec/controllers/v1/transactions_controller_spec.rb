@@ -6,7 +6,7 @@ RSpec.describe 'V1::TransactionsController', type: :request do
   describe '#index' do
     context 'when there are no transactions' do
       it 'returns an empty array' do
-        get v1_transactions_url
+        get v1_transactions_path
         expect(response).to have_http_status(:ok)
         body = JSON.parse(response.body)
         expect(body['transactions']).to eq []
@@ -19,7 +19,7 @@ RSpec.describe 'V1::TransactionsController', type: :request do
       let!(:transaction3){ create(:transaction) }
 
       it 'returns the array of transactions' do
-        get v1_transactions_url
+        get v1_transactions_path
         expect(response).to have_http_status(:ok)
         body = JSON.parse(response.body)
         expect(body['transactions'].size).to eq 3
