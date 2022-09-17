@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   #
   namespace :v1 do
     resources :transactions
+    resources :customers, only: :index
+    resources :currencies, only: :index
   end
 
   # Defines the root path route ("/")
