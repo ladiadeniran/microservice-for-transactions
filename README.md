@@ -48,7 +48,8 @@ The root route is `localhost:3000` and all the other routes are preceded with th
                 "currency_code": "Naira",
                 "currency_symbol": "N"
             },
-            "transaction_date": "2022-09-17T01:26:18Z"
+            "transaction_date": "2022-09-17T01:26:18Z",
+            "state": "pending"
         }
     ],
     "page": 1,
@@ -90,7 +91,8 @@ The root route is `localhost:3000` and all the other routes are preceded with th
         "currency_code": "USD",
         "currency_symbol": "$"
     },
-    "transaction_date": "2022-09-17T01:26:18Z"
+    "transaction_date": "2022-09-17T01:26:18Z",
+    "state": "pending"
 }
   ```
   3. PUT `/v1/transactions/:id` Update a transaction
@@ -100,6 +102,7 @@ The root route is `localhost:3000` and all the other routes are preceded with th
       "transaction": {
           "input_amount": 3000,
           "output_amount": "3500",
+          "state": "paid"
       }
     }
 
@@ -122,12 +125,13 @@ The root route is `localhost:3000` and all the other routes are preceded with th
         "currency_code": "USD",
         "currency_symbol": "$"
     },
-    "transaction_date": "2022-09-17T01:26:18Z"
+    "transaction_date": "2022-09-17T01:26:18Z",
+    "state": "paid"
 }
   ```
   4. DELETE `/v1/transactionss/:id` Delete a transaction
   ```
-  Deletes the notification
+  Deletes the transaction
   ```
   5. GET `/v1/transactionss/:id`
   ```
@@ -152,7 +156,8 @@ The root route is `localhost:3000` and all the other routes are preceded with th
         "currency_code": "USD",
         "currency_symbol": "$"
     },
-    "transaction_date": "2022-09-17T01:26:18Z"
+    "transaction_date": "2022-09-17T01:26:18Z",
+    "state": "canceled"
 }
 
   ```
