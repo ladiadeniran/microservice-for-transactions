@@ -20,4 +20,6 @@ class TransactionBlueprint < Blueprinter::Base
   field :transaction_date do |transaction|
     transaction.transaction_date.iso8601
   end
+
+  field :aasm_state, name: :state
 end

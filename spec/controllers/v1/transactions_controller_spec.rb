@@ -43,7 +43,8 @@ RSpec.describe 'V1::TransactionsController', type: :request do
           output_amount: 150,
           input_currency_id: input_currency.id,
           output_currency_id: output_currency.id,
-          transaction_date: "2022-09-17 01:26:18"
+          transaction_date: "2022-09-17 01:26:18",
+          aasm_state: 'paid'
         }
       end
 
@@ -57,6 +58,7 @@ RSpec.describe 'V1::TransactionsController', type: :request do
         expect(transaction['output_amount']['amount']).to eq 150
         expect(transaction['input_amount']['currency_name']).to eq input_currency.name
         expect(transaction['output_amount']['currency_name']).to eq output_currency.name
+        expect(transaction['state']).to eq 'paid'
       end
     end
 

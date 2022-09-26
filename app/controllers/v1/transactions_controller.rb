@@ -52,7 +52,8 @@ module V1
         :input_currency_id,
         :output_amount,
         :output_currency_id,
-        :transaction_date
+        :transaction_date,
+        :aasm_state
       )
     end
   end

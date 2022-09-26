@@ -30,6 +30,10 @@ gem 'blueprinter'
 # Pagination
 gem 'pagy', '~> 5.10'
 
+# state transitions
+gem 'aasm'
+gem 'after_commit_everywhere', '~> 1.0'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
